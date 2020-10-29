@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sasna/Documents/Studium/HAW Landshut/3. Semester/IT-Sicherheit/Übung/Übung1/01_SubstitutionCipher/Encoder/main.c
+stdio.h
+-
+
