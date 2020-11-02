@@ -27,7 +27,6 @@
 * Anhang A: sind die Security Controls -> darum muss man sich `konkret` kuemmern
 
 # Kapitel 4 Kryptographie
-
    -  überall vorhanden
 
 ## Vorgehen
@@ -43,7 +42,8 @@
 ### One time Key vs Multi use key
 * OTK wird einmal genutzt
 * MUK wird für mehrere Dokumente genutzt
-### Hauptaufgaben
+
+### Hauptaufgaben von Krypto
      1. Sicherer Schlüsselaustausch
      2. Sichere Kommuniktation
      3. Verfügbarkeit ist `nicht` garantiert
@@ -58,15 +58,4 @@
 1. Exakte Definition und Modellierung der Bedrohung
 2. Vorschlag einer Konstruktion (Algorithmus, Protokoll, Nachrichten)
 3. Beweis, dass der Bruch der Konstruktion bei der Bedrohung aus (1) identisch ist mit der Lösung eines zugrundeliegenden, schwierigen Problems
-
-
-<href>
-
-
-
-
-
-
-
-
 
