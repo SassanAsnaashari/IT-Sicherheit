@@ -135,4 +135,122 @@ Die `Security Control` schützt den `Asset` verändert die `Bedrohung` und reduz
 * Ersetzungstabellen
 * Ceasar Chiffre
 * Vigener Chiffre
-* Rotor basierte Verfahren (Enigma)
+* Rotor basierte Verfahren (Enigma) 2^18
+* DES (Data Encryoten Standard) 2^56
+
+
+### Diskrete Wahrscheinlichkeit
+
+#### Wahrscheinlichkeitsverteilung
+
+P sagt wie Wahrscheinlich ein bestimmmtes Byte ist...
+Beispeil: deutscher Text  P('e') = 0.2
+([0,1] -> zwischen 0 und 100 Prozent)
+1. Gleichverteilung : alle 'x' treten gleich oft auf. ( gar nicht schlecht für Krypto ( Häufigkeitsangriff nicht mehr mgl))
+2. Punktverteilung: ein Element tritt immer auf, und alle anderen Elemten treten dann nicht auf.
+3. Verteilungsvector: Vector aus allen Wahrscheinlichkeiten. Evtl Peak erkennen
+
+#### Ergeignis
+
+* Teilmenge 
+* Menge A ist ein Ergenis
+
+zB Ereignis: Buchstabe ist Vokal.
+lsb: least significant bit (unterstes Bit)
+Beispiel: 
+     
+     da 00,01,11,10 mgl sind: 1/4 ist die Wahrscheinlichkeit
+
+Weiters Beispie
+
+     P(A), P(B)
+     P(A || B) =  P(A) + P(B) nur falls sie sich nicht überlappen A n B = 0
+     sonst P(A || B) <=  P(A) + P(B)
+
+
+Randomisierter Algrorithmus:
+     
+    Ausgabe auf mehrere Elemente, m -> A(m) nicht immer das gleiche Element, da R dazu gerechnit wird. ( eine Zufalsvariablen)
+    
+XOR
+
+     A= 0110111
+     B= 1011010
+        -------
+     C= 1101101
+
+     C = A + B
+
+Weiter Eigenschaft von XOR: 
+
+    es entseht aus einer nicht gleichverteilten und gleichverteilen Zufallsvariablen eine gleichverteile Zufalssvariablen
+
+
+| X |Pr(X)|   
+|---|---|         
+| 0 |0.5|           
+|1 | 0.5|                
+
+|Y|P(Y)|
+|---|---|
+| 0 | ? |     
+| 1 | ? |   
+
+|Y | Pr(Z)|
+|--|------|
+|0 | (1 + 1) : 0.5 * Pr(Y = 1)
+|  | (0 + 0) : 0.5 * Pr(Y = 0) 
+|1 | (1 + 0) : 0.5 * Pr(Y = 1)
+|  | (0 + 1) : 0.5 * Pr(Y = 0)
+
+Plus(+) = Xor
+
+     Pr(Z) = 0.5 * Pr(Y= 0) + 0.5 * Pr(Y = 1)
+           = 0.5 * (Pr(Y=0) + Pr(Y=1))
+           = 0.5 * 1
+           = 0.5
+
+
+XOR zerstört die Struktur und jedes Bit ist dann gleichverteilt. Wenn das X gleichverteilt ist.
+
+## 4.1 Kryptographie : Stromchiffren
+(Idee: Xor Gleichverteilung 0.5 -> ausgabeStrom alle Bist 0.5 Auftrittswahrscheinlichkeit)
+
+### Symmetrischer Chiffren (Def)
+
+Wenn ich etwas verschlüssel und wieder entschlüssel muss das gleiche rauskommen, beschreibt die komische Formnel unten...
+
+### One Time Pad
+
+     Plain Text mit einem Key mit XoR verschlüsselt = Chiffre
+     c := m + k
+     c + k = (m+k)+k = m + (k + k) = m + 0 = m 
+
+
+Brechen: c1,c2
+
+Wenn c1 und c2 den `gleichen` key haben. 
+c1 = m1 + k
+c2 = m2 + k
+
+    -->  c1 + c2 = m1+k+m2+k 
+                 = m1 + m2 (nicht mehr gleichverteilt) 
+                 -> Musteranalysen (0 -> gleich, 1 -> verschieden)
+
+
+Extremst schnell! XoR sind sehr leicht zu berechnen.
+Key ist sehr lang.
+
+### Sicherer Chiffre (Def)
+
+- Perfekt Secrecy (Shennon) [Alles gleich wahrscheinlich]
+
+
+Beweis: 
+Antwort: genau einen: k = m + c
+     
+     Pr(E(k,m0)=c) = 1/|k|
+     
+     Pr(E(k,m1)=c) = 1/|k|
+
+Ausprobieren der Schlüssel hilft nicht, da man dann nicht weiß welcher Schlüssel der richtige ist.
