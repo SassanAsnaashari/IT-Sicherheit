@@ -257,3 +257,43 @@ Ausprobieren der Schlüssel hilft nicht, da man dann nicht weiß welcher Schlüs
 
 ### Stromchiffren
 
+* Kuerzerer SChluessel
+* keine Perfekt Secrecy
+* Da der Schlüssel nicht so lang wie die Nachricht sein soll
+* Sicherheit hängt von der Eigenschaft des PRG ab
+* mgl nichts ueber die naechste Zahl wissen, sie soll nicht vorhergesagt werden. Mathematisch nicht mgl.
+* Schluessel zufaellig gewaehlt
+
+#### Def Vorhersagbar
+
+Ein Algo der polynomiales Laufzeitverhalten aufweist, kann das i-te Bit vorhersagen mit einer Wahrscheinlichkeit, die größer als 1/2 + Epsilon 
+
+Darf nicht besser raten als Zufall
+
+Schluessel kennt der Algo nicht
+
+n : Soviele Bits kann PRG erzeugen
+
+### OTP -> Stromchiffre
+OTP 
+* E = m xOr k
+k lang
+Stromchiffre
+G(k)
+* E = m xOr G(k)
+
+Auch hier die Schluessel nicht wieder verwenden.
+Kein Integritätsschutz, da der Angreifen die Info abfangen kann und veraendern kann. Gezielt an Bit Stellen etwas verändern.
+
+### Diffie Hellmann
+
+* kommutativ der hinteren beiden
+* einfach auszurechnen, schwer umzukehren
+
+* mindestens 2048 Bits lang
+    - denn Rechenzeit: ca 3 Wochen fuer db, 60 s fuer berechnung // 512 Bit
+
+#### LogJam Angriff
+
+
+DHE_Export -> |p| <= 512bit
