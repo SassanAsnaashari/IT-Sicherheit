@@ -254,3 +254,6 @@ Antwort: genau einen: k = m + c
      Pr(E(k,m1)=c) = 1/|k|
 
 Ausprobieren der Schlüssel hilft nicht, da man dann nicht weiß welcher Schlüssel der richtige ist.
+
+### Stromchiffren
+
