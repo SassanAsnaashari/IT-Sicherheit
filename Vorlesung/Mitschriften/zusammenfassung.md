@@ -91,7 +91,7 @@ Die `Security Control` schützt den `Asset` verändert die `Bedrohung` und reduz
 * oft ausreichend untere Studen zu nehmen
 * Kosten und Dauer im Blick haben
 
-## ISO 27001 : Infromation Security Managment Systems
+### ISO 27001 : Infromation Security Managment Systems
 * Es werden keine `Produkte` sondern `Systeme`(Organisatorisches System)
 * Kontext der Organisation verstehen (Womit wird Geld verdient)
 * Erwartungen -> defenierne
@@ -101,7 +101,7 @@ Die `Security Control` schützt den `Asset` verändert die `Bedrohung` und reduz
 ## Kapitel 4 Kryptographie
    -  überall vorhanden
 
-## Vorgehen
+### Vorgehen
      1. Handschake
      2. Record Layer
 
@@ -287,7 +287,7 @@ Kein Integritätsschutz, da der Angreifen die Info abfangen kann und veraendern 
 
 ### Diffie Hellmann
 
-* kommutativ der hinteren beiden
+* kommutativ der hinteren beiden (nicht vollstaending)
 * einfach auszurechnen, schwer umzukehren
 
 * mindestens 2048 Bits lang
@@ -295,5 +295,103 @@ Kein Integritätsschutz, da der Angreifen die Info abfangen kann und veraendern 
 
 #### LogJam Angriff
 
-
 DHE_Export -> |p| <= 512bit
+
+#### 
+
+### Elliptic Curves
+Motivation: Andere Zahlenmengen, die Eigenschaften erfuellen,die aber schneller sind.
+
+Konkret: Mulitplikation in den elliptischen Kurven
+
+Definition: 
+* Kurve
+* Startpkt G
+* Q = n*G
+* private Info: n
+* oeffentlich: der Rest
+
+* Meinst genutzte Kurve
+```
+Curve 252590, Bernstein Kurve
+y^2 = x^3 + 486662 * x^2 + x
+```
+* Mathematische Definition der Operationen
+```
+*  Addition : 
+    * Gerade durch beide Pkte
+    * Schnittpkt  in einem dritten Pkt, muss gegeben sein, sonst Addition nicht mgl
+    * Senkrechte und Wagerechte nicht defeniert?
+    * Schnittppkt dann spiegeln, dann hat man P+Q
+    * Pkt mit sich selbst: Tangente, SChnittpkt, Spiegelung
+    * Das ist kommutativ
+```
+
+* Anwendung:
+```
+* Curve haben beide (Bernsteig-Lange Kurve)
+* Startpkt haben auch beide (x=9)
+* Zufaellige Ganzzahl dA, dB und multiplizieren das mit G
+QA/B = dA/B * G
+* QA und QB werden uebertragen
+* X = dA*QB = dA*dB*G
+* X = dB*QA = dB*dA*G
+
+* Eve muestte Division durchfuehren, dA = QA/G, dafuer ist kein Algorithmus bekannt!!!! (Mit beserer Laufzeit als alle MGlkeiten durchzuprobieren.(nicht polynonimal))
+```
+--> Dadurch Sicherheitsniveau geben.
+
+### Blockchiffren
+
+Motiv: XoR am Einfachsten, mit PlainText und nicht vorhersagbaren Stromchiffren
+Manchmal moechte man allerdings Bloecke verschluessseln:
+
+
+Es muss gelten(Anforderungen): 
+```
+D(k,E(k,m)) = m
+und 
+2^n Klartext -> 2^n Ciphertext
+--> bijektive Abbildung (Permutation)
+```
+
+#### Pseudo-Zufaellige Funktion vs Pseudo-Zufaellige Permutation
+
+E: K x X -> X (X und X gleich, da 2^n Mgl auf 2^n Mgl abgebildet werden)
+AES: K = X = {0,1}^128
+
+### Feistel-Chiffren (BlockChiffren)
+* Aufteilen
+* Pro Run: 
+    * L und R werden vertauschen
+    * L_i+1 = Ri
+    * R_i+1 = Li - Block xOR F(Ri,ki)
+
+* Entschluessel:
+    * L_i-1 = Ri xOr F(R_i-1,k_i-1)
+    * R_i-1 = L_i
+-> Somit Umkehrung gegeben
+
+* Anforderung an F sehr gering. Muss nur Pseudo Zufaellige Funktion sein. Nicht auf Plaintext und Key kommen koennen, aber mehr auch nicht
+
+#### Konfusion und S-Boxen
+
+S-Boxen bringen Konfusionen, damit keine regelmaessigkeiten in den Bloecken herausgedfunden werden koennen. 
+Nicht lineare Ersetzung. Durch eine Tabelle, oder Algo. Bijektiv. Muss Zufaellig sein
+
+#### Diffusion und P-Boxen
+
+PLaintext Bit aendern -> mgl die Haelfte im CiphertextBits aendern
+
+Erst S-Box(Rundenschluessel ersetzt), dann P-Box(Positionen werden vertauscht)
+
+Runden koennen in Hardware durchgefuehrt werden. Pro Runde 1 Assembler Befehl
+
+Um Bloecke nun zu verhindern:(Mustervermeidung)
+CBC Verschluesselung
+
+
+
+
+
+

@@ -1,0 +1,3 @@
+
+random = rand()
+print(radnom)
