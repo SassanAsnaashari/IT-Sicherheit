@@ -1,22 +1,43 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-
-int main(int argc, char* arg[]){
-    srand(time(NULL));
-    int randNr = rand() & 0xff;
-    time_t now;
-    time(&now);    
-
-    for(int i = 0; i < 100000; i++){
-        time(&now);  
-        srand(time(NULL));
-        int randNrNew = (randNr + rand() & 255);
-        randNr = rand() % 0xff;
-        printf("Die Zeit: %d\n",now);
-        printf("Die Random Numer: %d\n",randNr);
-        sleep(1);
-    }
+/**
+ * Gibt 5 Zufallszahlen aus, mit 5 verschiedenen Seeds. Zu jeder dieser Zahl 
+ * werden 20 Nachfolger ausgedruckt
+ * Diese Nachfolger, koennen dann zum Knacken des Casinos genutzt werden. 
+ */
+int main()
+{   
+   time_t timer;
+   time(&timer);
+   for(int i = 0;i<5;i++){
+   srand(timer);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("Die Zeit ist:%ld , Die Nummer ist: %d\n",timer,rand() &0xff);
+   printf("****************************\n");
+   timer++;
+   }
     
-    return 0;
+   return 0;
 }

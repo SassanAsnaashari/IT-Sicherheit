@@ -100,6 +100,11 @@ Die `Security Control` schützt den `Asset` verändert die `Bedrohung` und reduz
 
 ## Kapitel 4 Kryptographie
    -  überall vorhanden
+   -  Maß von Zufallszahlen ist die Entropie. Am Besten wenn die Entropie Bits genauso lang sind die wie Zufallszahl:
+   Zufallszahl 128 Bit -> Entropie 128 Bit.
+   Das schafft man nur durch Hardware Zufallszahlen Generierung: Quantenrauschen
+   
+
 
 ### Vorgehen
      1. Handschake
