@@ -1,6 +1,14 @@
 # <center> IT - Sicherheit 1 Zusammenfassung</center>
 #### <center> Sassan Asnaashari</center>
 
+Literatur:
+
+* IT Sicherheit von Roland Hellmann
+* IT Sicherheit von Claudia Eckert(nicht gut): Das Standart Buch aber nicht Herrn Uhrmanns
+* [Sans](www.sans.org)
+* [BSI]
+
+
 ## Kapitel 1 Begriffe
 * Vertraulichkeit:
     * Zugriff auf Informationen ist auf autorisierte Personen begrenzt. Nicht autorisierte Personen können auf die Informationen nicht zugreifen. 
@@ -395,7 +403,62 @@ Runden koennen in Hardware durchgefuehrt werden. Pro Runde 1 Assembler Befehl
 Um Bloecke nun zu verhindern:(Mustervermeidung)
 CBC Verschluesselung
 
+### Verwendung von BlockChiffren 
 
+* Electronik Code Block(ECB): Jeder Block wird identisch verschlüsselt
+    - Es entstehen wieder Strukturen
+
+ ![ECB](ECB.png)   
+
+* Cipher Block Chaining: Erst Xor mit Initialiserungsfaktor, dann immer mit dem vorgehenenden Block ve xOren.
+    - Ein defekt führt zu 2 Defekten, da wir immer den Block davor brauchen
+    - Entschlüsseln parallelisierbar
+    - Verschlüsseln ist nicht parallelisierbar
+![CBC](CBC.png)
+
+* Counter Mode CTR
+    - Nonce: Number used once(Zufallszahl)
+    - Genauso sicher wie CBC
+    - Vorteil : keine Fehlervortplflanzung der Fehler
+    - Verschlüsseln: parralelisierbar
+    - Entschlüsseln: parralelisierbar
+    - Galois Counter Mode(Nachprüfung auf Veränderung auf dem Übertragungsweg) einer der häufigsten bei Übertragugnen im WEB
+    - 
+
+![CM](CM.png)
+
+## Cloud Security
+
+Man kommt nicht mehr daran vorbei!
+
+### Was ist eine Cloud
+
+* Eigenschaften die Cloud beschreiben (5)
+
+* UNten was wir bekommen von der Cloud
+* Oben was wir setzen müssen
+* Prüfungsfrage: Rentiert sich Cloud nur falls pCloud < pRz -> Nein, weil nur genutze Resourcen in der Cloud bezahlt werden, vorrausgestzt die Anwendung so designt ist.
+
+* Angriffsvektoren:
+    - teschnische Hackes (klassisch)
+    - phzsikalischer Hack (Bestechen, Erpressen, sich einstellen lassen)
+    - Netzwerkpfade eingreifen
+    - Controlle ueber Clients (Admin)
+
+Beispiel:
+(DDoS(Deniel of Service) -> Viele Bots, um Ablenkung zu schaffen)
+
+* Cloud Security, preventive Massnahmen, siehe Folie. ( Die Zahlen sind die Zahlen auf der Folien mit den Hacks)
+
+## Cloud IT Sicherheit (Sicherheitsneiveau entscheiden)
+* Schutzniveau: Brauchen nicht sicherer sein als ich muss, aber auch nicht weniger sicher sein
+
+* Typische Bewertungen gelten auch bei der Cloud
+    * phzsikalisches ( Standort, Erdbeben) -> Policy des Kunden ueber Standortwahl, Entsorgung...
+    * Zugriffskontrollen (Gebaeuder aber auch IT)
+    * Datensicherung (halten, loeschen, ausfall)
+    * Netzerksicherheit (uebrwachung(logging,monitoring))
+    * Risiko und Vorfallsmanagment ueber Zertifizierungen ( Nur was im Scope steht wird zertifiziert)
 
 
 
